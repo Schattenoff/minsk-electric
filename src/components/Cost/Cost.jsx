@@ -19,6 +19,7 @@ const Cost = () => {
             <table className={classes.cost__table}>
               <tr>
                 <th>Наименование</th>
+                <th>Наименование</th>
               </tr>
               <tr>
                 <td>Монтаж</td>
