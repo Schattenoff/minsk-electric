@@ -1,0 +1,18 @@
+.header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  padding: 20px;
+  z-index: 10;
+  background-color: #020203;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone__link {
+  font-weight: 600;
+}

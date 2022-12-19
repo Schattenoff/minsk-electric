@@ -1,0 +1,12 @@
+.services {
+  min-height: 100vh;
+  padding: 50px;
+  background-color: #f8c861;
+}
+
+.services__cards {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
