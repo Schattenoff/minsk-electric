@@ -1,0 +1,13 @@
+.general__list {
+	position: relative;
+	width: 1000px;
+	padding: 10px 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(0, 100, 187);
+}
+
+.general__list h2 {
+	color: #ffffff;
+}

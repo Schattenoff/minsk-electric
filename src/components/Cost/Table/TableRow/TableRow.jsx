@@ -1,7 +1,7 @@
 import { useState } from "react"
 import classes from "./table-row.module.css"
 
-const TableRow = ({ item, checked, onChangeChecked, amount, checkedList }) => {
+const TableRow = ({ item, checked, onChangeChecked, amount, checkedList, tableId }) => {
    const [totalAmount, setTotalAmount] = useState(checked ? amount : 0)
 
    const handlerAmountChange = (e) => {
@@ -9,7 +9,11 @@ const TableRow = ({ item, checked, onChangeChecked, amount, checkedList }) => {
          return e.target.value = "";
       }
       setTotalAmount(e.target.value)
-      checkedList[checkedList.findIndex(listItem => listItem.id === item.id)].value = +(e.target.value * item.cost).toFixed(2)
+      const itemIndex = checkedList.findIndex(listItem => listItem.id === item.id)
+      checkedList[itemIndex] = {
+         ...checkedList[itemIndex],
+         value: +(e.target.value * item.cost).toFixed(2)
+      }
    }
 
    return (
@@ -24,7 +28,6 @@ const TableRow = ({ item, checked, onChangeChecked, amount, checkedList }) => {
                value={totalAmount}
                onChange={handlerAmountChange}
             /> : <p>0</p>}
-
          </td>
          <td className={classes.cost__table}>{(totalAmount * item.cost).toFixed(2)}</td>
       </tr >
