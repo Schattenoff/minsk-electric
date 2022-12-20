@@ -1,11 +1,14 @@
 import { useState } from "react";
 import PageContainer from "../PageContainer/PageContainer";
 import classes from "./cost.module.css";
+import { PrepareWorks } from "./cost.constants"
+import Table from "./Table/Table";
 
 const Cost = () => {
   const [openCost, setOpenCost] = useState(false);
 
   const toggleCost = () => setOpenCost((prev) => !prev)
+
   return (
     <section id="cost" className={classes.cost}>
       <PageContainer>
@@ -16,20 +19,7 @@ const Cost = () => {
             <button onClick={toggleCost}>svg {openCost ? "close" : "open"}</button>
           </div>
           {openCost && (
-            <table className={classes.cost__table}>
-              <tr>
-                <th>Наименование</th>
-                <th>Наименование</th>
-              </tr>
-              <tr>
-                <td>Монтаж</td>
-                <td>Монтаж</td>
-              </tr>
-              <tr>
-                <td>Монтаж</td>
-                <td>Монтаж</td>
-              </tr>
-            </table>
+            <Table data={PrepareWorks} />
           )}
         </div>
       </PageContainer>

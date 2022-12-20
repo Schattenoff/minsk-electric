@@ -1,0 +1,23 @@
+tr.active {
+	background-color: rgb(223, 240, 255);
+}
+
+.cost__table_amount {
+	max-width: 60px;
+}
+
+.cost__table_amount input {
+	width: 100%;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.cost__table_amount input.hidden {
+	border: 2px solid transparent;
+	outline: none;
+	background-color: transparent;
+}
+
+.cost__table_amount input.visible {
+	visibility: visible;
+}
