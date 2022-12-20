@@ -18,9 +18,9 @@ const Cost = () => {
             <h2>1. Подготовительные работы (штроба, отверстия, ниши)</h2>
             <button onClick={toggleCost}>svg {openCost ? "close" : "open"}</button>
           </div>
-          {openCost && (
-            <Table data={PrepareWorks} />
-          )}
+
+          <Table data={PrepareWorks} isOpen={openCost} />
+
         </div>
       </PageContainer>
     </section >

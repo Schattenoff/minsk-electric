@@ -3,26 +3,28 @@ tr.active {
 }
 
 .cost__table {
-  text-align: center;
+	text-align: center;
+}
+
+.cost__table:first-child {
+	width: 60px;
 }
 
 .cost__table:nth-child(5) {
-  max-width: 60px;
+	max-width: 60px;
 }
 
 .amount input {
 	width: 100%;
-  text-align: center;
-  padding: 8px 0;
+	text-align: center;
+	padding: 8px 0;
 	font-size: 16px;
-  border-radius: 8px;
-  border: 2px solid rgb(0, 100, 187);
+	border-radius: 8px;
+	border: 2px solid rgb(0, 100, 187);
 }
 
 .amount input::-webkit-outer-spin-button,
-                    input::-webkit-inner-spin-button {
-                      -webkit-appearance: none;
-                      margin: 0;
-                    }
-
-
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import TableRow from "./TableRow/TableRow"
 import classes from "./table.module.css"
 
-const Table = ({ data }) => {
+const Table = ({ data, isOpen }) => {
    const [checkedList, setCheckedList] = useState([])
-   const [totalCost, setTotalCost] = useState(0)
 
    const handlerSelectChange = (id) => {
       let selection = [...checkedList];
@@ -24,12 +23,8 @@ const Table = ({ data }) => {
       setCheckedList(selection)
    }
 
-   useEffect(() => {
-
-   }, [checkedList])
-
    return (
-      <table className={classes.cost__table}>
+      <table className={`${classes.cost__table} ${!isOpen ? classes.hidden : ""}`}>
          <thead>
             <tr>
                <th></th>
@@ -51,9 +46,6 @@ const Table = ({ data }) => {
                   checkedList={checkedList}
                />
             ))}
-            <tr>
-               <td colSpan="6">adsads</td>
-            </tr>
 
          </tbody>
       </table>
