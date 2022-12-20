@@ -6,7 +6,7 @@ export default function reducer(state, action) {
    const { type, payload } = action
 
    switch (type) {
-      case ACTION.ADD_WORK: {
+      case ACTION.SET_WORK: {
          return [...payload]
       }
    }

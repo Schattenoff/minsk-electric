@@ -5,7 +5,7 @@ import { TablesData } from "./cost.constants"
 import Table from "./Table/Table";
 import TableHeader from "./TableHeader/TableHeader";
 import { useAppReducer } from "../../hooks/useAppReducer";
-import { addWork } from "../../reducer/actions"
+import { setWork } from "../../reducer/actions"
 
 const initialState = {
   isOpens: new Array(7).fill(false),
@@ -38,7 +38,7 @@ const Cost = () => {
   }
 
   const handlerCalculate = () => {
-    dispatch(addWork(checkedLists.filter(list => list.length > 0)))
+    dispatch(setWork(checkedLists.filter(list => list.length > 0)))
   }
 
   return (

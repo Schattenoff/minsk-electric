@@ -1,7 +1,7 @@
 import { ACTION } from "./types"
 
-export const addWork = (payload) => ({
-   type: ACTION.ADD_WORK,
+export const setWork = (payload) => ({
+   type: ACTION.SET_WORK,
    payload
 })
 
