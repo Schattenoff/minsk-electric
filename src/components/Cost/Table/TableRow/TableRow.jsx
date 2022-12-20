@@ -41,7 +41,7 @@ const TableRow = ({ item, checked, onChangeChecked, amount, checkedList, tableId
                type="number"
                value={totalAmount}
                onChange={handlerAmountChange}
-            /> : <p>0</p>}
+            /> : <p>{totalAmount}</p>}
          </td>
          <td className={classes.cost__table}>{(totalAmount * item.cost).toFixed(2)}</td>
       </tr >
