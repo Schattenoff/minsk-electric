@@ -1,9 +1,7 @@
-import { useState } from "react"
 import TableRow from "./TableRow/TableRow"
 import classes from "./table.module.css"
 
-const Table = ({ data, isOpen, tableId }) => {
-  const [checkedList, setCheckedList] = useState([])
+const Table = ({ data, isOpen, checkedList, updateCheckedLists, id }) => {
 
   const handlerSelectChange = (item) => {
     let selection = [...checkedList];
@@ -21,12 +19,9 @@ const Table = ({ data, isOpen, tableId }) => {
         amount: 0,
       });
     }
-    setCheckedList(selection)
+
+    updateCheckedLists(id - 1, selection)
   }
-
-  console.log(checkedList);
-
-
 
   return (
     <table className={`${classes.cost__table} ${!isOpen ? classes.hidden : ""}`}>
@@ -45,7 +40,6 @@ const Table = ({ data, isOpen, tableId }) => {
           <TableRow
             key={item.id}
             item={item}
-            tableId={tableId}
             amount={checkedList.find(listItem => listItem.id === item.id)?.value || 0}
             onChangeChecked={() => handlerSelectChange(item)}
             checked={checkedList.some(listItem => listItem.id === item.id)}
