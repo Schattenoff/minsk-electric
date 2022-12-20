@@ -15,9 +15,8 @@ export default function reducer(state, action) {
 
   switch (type) {
     case ACTION.ADD_WORK: {
-
-      // const existItemImdex =
-
+      const { tableId, newItem } = payload;
+      console.log(tableId);
     }
   }
 }
