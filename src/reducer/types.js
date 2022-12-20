@@ -1,4 +1,4 @@
 export const ACTION = {
-   ADD_WORK: "add_work",
-   REMOVE_WORK: "remove_work",
+  ADD_WORK: "ADD_WORK",
+  REMOVE_WORK: "REMOVE_WORK",
 }

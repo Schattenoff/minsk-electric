@@ -17,7 +17,7 @@ const initialState = {
 }
 
 const Cost = () => {
-  const [state, _] = useAppReducer()
+  const [state, dispatch] = useAppReducer()
   const [openTables, setOpenTables] = useState(initialState);
 
   const toggleCost = (tableId) => setOpenTables({
