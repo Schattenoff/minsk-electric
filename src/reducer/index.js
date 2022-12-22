@@ -9,5 +9,9 @@ export default function reducer(state, action) {
       case ACTION.SET_WORK: {
          return [...payload]
       }
+
+      case ACTION.RESET_WORKS: {
+         return new Array(7).fill([])
+      }
    }
 }

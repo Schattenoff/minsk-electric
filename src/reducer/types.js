@@ -1,4 +1,4 @@
 export const ACTION = {
   SET_WORK: "SET_WORK",
-  REMOVE_WORK: "REMOVE_WORK",
+  RESET_WORKS: "RESET_WORKS",
 }

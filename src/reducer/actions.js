@@ -5,7 +5,6 @@ export const setWork = (payload) => ({
    payload
 })
 
-export const removeWork = (payload) => ({
-   type: ACTION.REMOVE_WORK,
-   payload
+export const resetWork = () => ({
+   type: ACTION.RESET_WORKS,
 })

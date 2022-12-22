@@ -5,7 +5,8 @@ import { TablesData } from "./cost.constants"
 import Table from "./Table/Table";
 import TableHeader from "./TableHeader/TableHeader";
 import { useAppReducer } from "../../hooks/useAppReducer";
-import { setWork } from "../../reducer/actions"
+import { resetWork, setWork } from "../../reducer/actions"
+import CheckListModal from "../CheckListModal/CheckListModal";
 
 const initialState = {
   isOpens: new Array(7).fill(false),
@@ -16,6 +17,10 @@ const Cost = () => {
   const [state, dispatch] = useAppReducer()
   const [openTables, setOpenTables] = useState(initialState.isOpens);
   const [checkedLists, setCheckedLists] = useState(initialState.checkedLists)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const onOpen = () => setIsOpen(true)
+  const onClose = () => setIsOpen(false)
 
   const toggleCost = (tableId) => {
     setOpenTables(openTables.map((value, index) => {
@@ -39,6 +44,14 @@ const Cost = () => {
 
   const handlerCalculate = () => {
     dispatch(setWork(checkedLists.filter(list => list.length > 0)))
+    onOpen()
+  }
+
+  const handlerClickBuy = () => {
+    dispatch(resetWork())
+    setCheckedLists(initialState.checkedLists)
+    setOpenTables(initialState.isOpens)
+    onClose()
   }
 
   return (
@@ -55,11 +68,8 @@ const Cost = () => {
 
           <button onClick={handlerCalculate}>Рассчитать</button>
         </div>
-        <h3>Вы добавили: </h3>
-        <div>{state.flat().map(item => (
-          <div key={item.id}>{item.name} - всего {item.sum} по цене {item.cost} за штуку ({item.amount} штук)</div>
-        ))}
-        </div>
+
+        <CheckListModal isOpen={isOpen} onClose={onClose} list={state} onClick={handlerClickBuy} />
       </PageContainer>
     </section >
   );
