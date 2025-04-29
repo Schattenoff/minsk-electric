@@ -1,3 +1,4 @@
+import About from './components/About/About';
 import Contacts from './components/Contacts/Contacts';
 import Cost from './components/Cost/Cost';
 import Footer from './components/Footer/Footer';
@@ -10,6 +11,7 @@ function App() {
     <>
       <Header />
       <General />
+      <About />
       <Services />
       <Cost />
       <Contacts />

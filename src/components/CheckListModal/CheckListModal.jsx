@@ -14,7 +14,7 @@ const CheckListModal = ({ isOpen, onClose, list, onClick }) => {
         <div className={classes.modal__content}>
           <button className={classes.modal__closeButton} onClick={onClose}><img alt="close-modal-button" src={"./img/cancel.png"} /></button>
 
-          <h3 className={classes.modal__content_heading}>Чек-Лист</h3>
+          <h3 className={classes.modal__content_heading}>Чек-лист</h3>
 
           <div className={`${classes.modal__content_works} ${classes.modal__content_worksHeading}`}>
             <h6>Наименование</h6>
@@ -33,7 +33,7 @@ const CheckListModal = ({ isOpen, onClose, list, onClick }) => {
 
           <div className={classes.modal__content_footer}>
             <h4>Всего: {formatPrice(totalSum)}</h4>
-            <button onClick={onClick}>Оформить</button>
+            <button onClick={onClose}>Закрыть</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,21 @@
 .footer {
-  height: 10vh;
-  background-color: #000;
+	background-color: #000;
+	padding: 20px;
+}
+
+.footer__content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer__about {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 15px;
+	opacity: 0.7;
+}
+
+.footer__about a {
+	text-decoration: underline;
 }

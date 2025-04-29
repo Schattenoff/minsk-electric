@@ -1,5 +1,34 @@
 .contacts {
-  padding: 50px;
-  height: 100vh;
-  background-color: #f8c861;
+	padding: 50px;
+	background-color: #f8c861;
+}
+
+.contacts__content {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	gap: 30px;
+	cursor: pointer;
+}
+
+.contacts__item {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	span {
+		font-size: 30px;
+	}
+}
+
+.contacts__item:hover {
+	color: #373737;
+}
+
+.contacts__item_img {
+	width: 64px;
+	height: 64px;
+	object-fit: cover;
 }

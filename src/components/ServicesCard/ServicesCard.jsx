@@ -5,7 +5,9 @@ const ServicesCard = ({ imgUrl, title }) => {
     <div className={classes.card}>
       <img className={classes.card__img} src={imgUrl} alt={title} />
       <h3 className={classes.card__title}>{title}</h3>
-      <button className={classes.card__button} type="button">Вызвать мастера</button>
+      <a href="tel:+375336607040" className={classes.card__button}>
+        Вызвать мастера
+      </a>
     </div>
   );
 };

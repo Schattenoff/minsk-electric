@@ -1,8 +1,8 @@
 export const navigationItems = [
   {
     id: 1,
-    title: 'Главная',
-    href: 'general'
+    title: 'О нас',
+    href: 'about'
   },
   {
     id: 2,

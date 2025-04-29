@@ -1,10 +1,16 @@
 .list__items {
-  display: flex;
-  list-style-type: none;
-  font-size: 16px;
+	display: flex;
+	list-style-type: none;
+	font-size: 16px;
 }
 
 .list__item {
-  cursor: pointer;
-  margin-right: 30px;
+	cursor: pointer;
+	margin-right: 30px;
+}
+
+@media (max-width: 950px) {
+	.nav {
+		display: none;
+	}
 }

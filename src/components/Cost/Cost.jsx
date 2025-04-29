@@ -8,6 +8,9 @@ import { useAppReducer } from "../../hooks/useAppReducer";
 import { resetWork, setWork } from "../../reducer/actions"
 import CheckListModal from "../CheckListModal/CheckListModal";
 
+import { useMemo } from "react";
+import { useCallback } from "react";
+
 const initialState = {
   isOpens: new Array(7).fill(false),
   checkedLists: new Array(7).fill([])
@@ -22,16 +25,16 @@ const Cost = () => {
   const onOpen = () => setIsOpen(true)
   const onClose = () => setIsOpen(false)
 
-  const toggleCost = (tableId) => {
+  const toggleCost = useCallback((tableId) => {
     setOpenTables(openTables.map((value, index) => {
       if (index === tableId - 1) {
         value = !value
       }
       return value
     }))
-  };
+  }, [openTables])
 
-  const updateCheckedLists = (id, checkedList) => {
+  const updateCheckedLists = useCallback((id, checkedList) => {
     checkedLists[id] = checkedList
     setCheckedLists(checkedLists.map((list, index) => {
       if (index === id) {
@@ -40,19 +43,23 @@ const Cost = () => {
 
       return list
     }))
-  }
+  }, [checkedLists])
 
-  const handlerCalculate = () => {
+  const handleCalculate = useCallback(() => {
     dispatch(setWork(checkedLists.filter(list => list.length > 0)))
     onOpen()
-  }
+  }, [checkedLists, dispatch])
 
-  const handlerClickBuy = () => {
-    dispatch(resetWork())
-    setCheckedLists(initialState.checkedLists)
+  const handleResetCheckedLists = useCallback(() => {
+    setCheckedLists([...initialState.checkedLists])
     setOpenTables(initialState.isOpens)
-    onClose()
-  }
+    dispatch(resetWork())
+  }, [dispatch])
+
+
+  const isListEmpty = useMemo(() => checkedLists.every(subArray => subArray.length === 0), [checkedLists]);
+
+
 
   return (
     <section id="cost" className={classes.cost}>
@@ -65,13 +72,15 @@ const Cost = () => {
               <Table data={data} isOpen={openTables[id - 1]} tableId={id} checkedList={checkedLists[id - 1]} updateCheckedLists={updateCheckedLists} id={id} />
             </div>
           ))}
-
-          <button onClick={handlerCalculate}>Рассчитать</button>
+          <div className={classes.cost__actions}>
+            <button className={classes.cost__button} onClick={handleCalculate} disabled={isListEmpty}>Рассчитать</button>
+            {!isListEmpty && <button className={classes.cost__button_reset} onClick={handleResetCheckedLists}>Сброс</button>}
+          </div>
         </div>
 
-        <CheckListModal isOpen={isOpen} onClose={onClose} list={state} onClick={handlerClickBuy} />
+        <CheckListModal isOpen={isOpen} onClose={onClose} list={state} />
       </PageContainer>
-    </section >
+    </section>
   );
 };
 

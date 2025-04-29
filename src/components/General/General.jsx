@@ -10,7 +10,7 @@ const General = () => {
         <div className={classes.general__content}>
           <h1 className={classes.general__title}>Электромонтажные работы по Минску и в области</h1>
           <p>Любой сложности. Низкие цены. Качественно.</p>
-          <Link className={classes.general__button} to="services" offset={-75} duration={500} smooth={true} spy={true}>Узнать подробнее</Link>
+          <Link className={classes.general__button} to="about" offset={-75} duration={500} smooth={true} spy={true}>Узнать подробнее</Link>
         </div>
       </PageContainer>
     </section>
